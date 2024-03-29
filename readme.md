@@ -1,0 +1,1 @@
+﻿The solution contains code to practice CSharp language features upto C#12.
