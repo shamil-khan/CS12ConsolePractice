@@ -1,19 +1,12 @@
 ﻿namespace CS12Basic;
 
-class Program
+partial class Program
 {
     static void Main(string[] args)
     {
-        WriteLine("Hello, World!");
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+        WriteLine(char.ConvertFromUtf32(0x1F600));
+        SystemInfo();
         NullCoalescingSample();
-    }
-
-    static void NullCoalescingSample()
-   {
-       string? name = null;
-       WriteLine(name ?? "name is null"); 
-       
-       name ??= "unknown";
-       WriteLine(name);
     }
 }
