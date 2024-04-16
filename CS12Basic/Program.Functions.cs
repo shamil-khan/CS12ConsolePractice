@@ -1,4 +1,6 @@
-﻿namespace CS12Basic;
+﻿using static System.Console;
+
+namespace CS12Basic;
 
 partial class Program
 {
