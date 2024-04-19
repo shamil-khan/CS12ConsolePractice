@@ -18,4 +18,25 @@ partial class Program
         WriteLine($"Machine name: {Env.MachineName}");   
         WriteLine($"Username: {Env.UserName}");
     }
+
+    static void ShowEmoji()
+    {
+        OutputEncoding = System.Text.Encoding.UTF8;
+        WriteLine(char.ConvertFromUtf32(0x1F600));
+    }
+
+    static void ShowEmojiLeftPattern()
+    {
+        OutputEncoding = System.Text.Encoding.UTF8;
+        var happyface = char.ConvertFromUtf32(0x1F600);
+
+        for (var i = 1; i <= 20; i++)
+        {
+            for(var j=1; j<=i; j++)
+            {
+                Write($"{happyface} ");
+            }
+            WriteLine();
+        }
+    }
 }
