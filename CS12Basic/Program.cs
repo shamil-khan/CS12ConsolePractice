@@ -4,7 +4,9 @@ partial class Program
 {
     static void Main(string[] args)
     {
-        ShowEmojiLeftPattern();
+        ShowSwitchPatternMatching();
+        
+        // ShowEmojiLeftPattern();
 
         Console.WriteLine("\n\n------------------------ The End ------------------------");
     }
