@@ -1,5 +1,7 @@
 ﻿using static System.Console;
 
+using Fruit = (string Name, int Count);
+
 namespace CS12Basic;
 
 partial class Program
@@ -133,4 +135,13 @@ partial class Program
         }
         
     }
+
+    static Fruit ShowAliasingTuples()
+    {
+        var fruit = (Name: "Apple", Count: 10);
+        WriteLine($"Fruit: {fruit.Name}, Count: {fruit.Count}");
+        return fruit;
+    }
 }
+
+
