@@ -1,10 +1,14 @@
-﻿namespace CS12Basic;
+﻿using System.Data;
+using Spectre.Console;
+
+namespace CS12Basic;
 
 partial class Program
 {
     static void Main(string[] args)
     {
-        ShowAliasingTuples();
+        ShowEnvironment();
+        // ShowAliasingTuples();
         // ShowSwitchPatternMatching();
         // ShowEmojiLeftPattern();
 

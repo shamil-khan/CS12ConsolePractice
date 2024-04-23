@@ -1,4 +1,5 @@
-﻿using static System.Console;
+﻿using Spectre.Console;
+using static System.Console;
 
 using Fruit = (string Name, int Count);
 
@@ -29,7 +30,7 @@ partial class Program
 
     static void ShowEmojiLeftPattern()
     {
-        OutputEncoding = System.Text.Encoding.UTF8;
+        OutputEncoding = System.Text.Encoding.Default;
         var happyFace = char.ConvertFromUtf32(0x1F600);
 
         for (var i = 1; i <= 50; i++)
@@ -141,6 +142,39 @@ partial class Program
         var fruit = (Name: "Apple", Count: 10);
         WriteLine($"Fruit: {fruit.Name}, Count: {fruit.Count}");
         return fruit;
+    }
+
+    private static void SectionTitle(string title)
+    {
+        WriteLine();
+        ConsoleColor previousColor = ForegroundColor;
+
+        ForegroundColor = ConsoleColor.DarkYellow;
+        WriteLine($"*** {title} ***");
+        ForegroundColor = previousColor;
+    }
+    
+    static void ShowEnvironment()
+    {
+        SectionTitle("Handling cross-platform environments and filesystems");
+        Table table = new();
+        table.AddColumn("[blue]MEMBER[/]");
+        table.AddColumn("[blue]VALUE[/]");
+
+        table.AddRow("Path.PathSeparator", PathSeparator.ToString());
+        table.AddRow("Path.DirectorySeparatorChar", DirectorySeparatorChar.ToString());
+        table.AddRow("Directory.GetCurrentDirectory()", GetCurrentDirectory());
+        table.AddRow("Environment.CurrentDirectory", CurrentDirectory);
+        table.AddRow("Environment.SystemDirectory", SystemDirectory);
+        table.AddRow("Path.GetTempPath()", GetTempPath());
+        table.AddRow("");
+        table.AddRow("GetFolderPath(SpecialFolder", "");
+        table.AddRow(" .System)", GetFolderPath(SpecialFolder.System));
+        table.AddRow(" .ApplicationData)", GetFolderPath(SpecialFolder.ApplicationData));
+        table.AddRow(" .MyDocuments)", GetFolderPath(SpecialFolder.MyDocuments));
+        table.AddRow(" .Personal)", GetFolderPath(SpecialFolder.Personal));
+
+        AnsiConsole.Write(table);
     }
 }
 
